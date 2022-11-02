@@ -72,10 +72,10 @@
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else</div>
         </div>
    
-        <div class="d-grid gap-2">
-            <button type="submit" name="submit" class="btn btn-success btn-block">Save Changes</button>
-            <a href="view.php" class="btn btn-info">Back to List</a>   
-        </div>
+        
+            <button type="submit" name="submit" class="btn btn-success">Save Changes</button>
+            <a href="viewrecords.php" class="btn btn-default">Back to List</a>  
+        
     
     </form>
 <?php } ?>
