@@ -40,8 +40,8 @@ include_once 'includes/session.php'?>
             ?>
               <a class="nav-link active" aria-current="page" href="login.php">Login</a>
             <?php } else { ?>
-              <a class="nav-item nav-link" href="#"><span>Hello <?php echo $_SESSION['username'] ?>! </span> <span class="sr-only"> (current)</span></a>
-              <a class="nav-item nav-link active" aria-current="page" href="logout.php">Logout <span class="sr-only">(current)</span></a>
+              <a class="nav-item nav-link" href="#"><span>Hello <?php echo $_SESSION['username'] ?>! </span> <span class="sr-only"></span></a>
+              <a class="nav-item nav-link active" aria-current="page" href="logout.php">Logout <span class="sr-only"></span></a>
             <?php } ?>
           </div>
         </div>
