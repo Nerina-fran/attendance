@@ -1,6 +1,8 @@
-        <div id="footer">
-            <?php echo 'Copyright ' . date('y'); ?>
-        </div>
+        
+        <div id="footer" class="p-2 bg-primary text-white fixed-bottom">
+            <p class="text-center">Copyright NTF &copy; -IT Conference Attendance System <?php echo date('Y'); ?>
+        </div> 
+
     </div>
 <!--Optional JavaScript -->
     <!-- JQuery first, then popper.js, then Bootstrap JS-->

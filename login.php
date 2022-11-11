@@ -30,7 +30,7 @@
         <table class="table table-sm">
             <tr>
                 <td>
-                    <lable for="username">Username: * </lable></td>
+                    <label for="username">Username: * </label></td>
                 <td><input type="text" name="username" class="form-control" id="username" 
                 value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
                 
@@ -38,7 +38,7 @@
                 </td>
             </tr>
             <tr>
-                <td><lable for="password">Password: * </lable></td>
+                <td><label for="password">Password: * </label></td>
                 <td><input type="password" name="password" class="form-control" id="password">
                 <?php if (empty($password) && isset($password_error)) echo "<p class='text-danger'>$password_error</p>"; ?>
                 </td>
