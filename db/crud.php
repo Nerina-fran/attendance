@@ -1,6 +1,6 @@
 <?php
 
-use LDAP\Result;
+//use LDAP\Result;
 
     class crud{
         // private database object\
@@ -12,11 +12,11 @@ use LDAP\Result;
         }
 
         // function to insert a new record into the attendee database    
-        public function insertAttendees($fname, $lname, $dob, $email, $contact, $specialty){
+        public function insertAttendees($fname, $lname, $dob, $email, $contact, $specialty, $avatar_path){
             try {
                 // define sql statement to be executed
                 $sql = "INSERT INTO attendee (firstname, lastname, dateofbirth, emailaddress, contactnumber,
-                specialization_id)VALUES(:fname, :lname, :dob, :email, :contact, :specialty)";
+                specialization_id, avatar_path) VALUES (:fname, :lname, :dob, :email, :contact, :specialty, :avatar_path)";
                 // prepare sql statement for execution
                 $stmt = $this->db->prepare($sql);
                 // bind all placeholders to the actual values
@@ -26,6 +26,8 @@ use LDAP\Result;
                 $stmt->bindparam(':email',$email);
                 $stmt->bindparam(':contact',$contact);
                 $stmt->bindparam(':specialty',$specialty);
+                $stmt->bindparam(':avatar_path',$avatar_path);
+
                 // excute statement
                 $stmt->execute();
                 return true;

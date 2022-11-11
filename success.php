@@ -13,8 +13,25 @@
       $email = $_POST['email'];
       $contact = $_POST['phone'];
       
+    //   $orig_file = $_FILES["avatar"]["tmp_name"];
+    //   $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+    //   $target_dir = 'uploads/*';
+    //   $destination = "$target_dir$contact.$ext";
+    //   move_uploaded_file($orig_file,$destination);
+
+    
+    //Uploading Images
+    $orig_file = $_FILES["avatar"]["tmp_name"];
+    $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+    $target_dir = 'uploads/';
+    $destination = "$target_dir$contact.$ext";
+    move_uploaded_file($orig_file,$destination);
+
+     // exit();
+    
+      
       //call function to insert and track if success or not
-      $isSuccess = $crud->insertAttendees($fname, $lname, $dob, $email, $contact, $specialty);
+      $isSuccess = $crud->insertAttendees($fname, $lname, $dob, $email, $contact, $specialty, $destination);
       $specialtyName = $crud->getSpecialtiesById($specialty);
       
       if($isSuccess){

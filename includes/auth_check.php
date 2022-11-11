@@ -1,5 +1,5 @@
 <?php 
-    if(!isset($_SESSION['userid'])){
+    if(!isset($_SESSION['user_id'])){
       header("Location: login.php");  
     }
 ?>

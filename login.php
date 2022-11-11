@@ -3,20 +3,22 @@
 
     require_once 'includes/header.php'; 
     require_once 'db/conn.php';
-    require_once 'db/user.php';
-     
+    // require_once 'db/user.php';
+
     // If data was submitted via a from POST request, then...
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $username = strtolower(trim($_POST['username']));
         $password = $_POST['password'];
         $new_password = md5($password.$username);
-
+        
         $result = $user->getUser($username,$new_password);
+
         if(!$result){
             echo '<div class="alert alert-danger">Username or Password is incorrect! Please Enter Correct Password. </div>';
         }else{
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $result['id'];
+            var_dump($_SESSION);
             header("Location: viewrecords.php");
         }
     }
@@ -29,7 +31,8 @@
             <tr>
                 <td>
                     <lable for="username">Username: * </lable></td>
-                <td><input type="text" name="username" class="form-control" id="username" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
+                <td><input type="text" name="username" class="form-control" id="username" 
+                value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
                 
                 <?php if (empty($username) && $_SERVER['REQUEST_METHOD'] == 'POST') echo "<p class='text-danger'>$username</p>"; ?>
                 </td>
@@ -42,8 +45,11 @@
             </tr>
         </table><br/><br/><br/>
         <div class="d-grid gap-2">
-        <button type="submit" name="Login" class="btn btn-primary btn-block">Login</button>   
+        <input type="submit" value="Login" class="btn btn-primary btn-block"><br/>
+
+            <!-- <button type="submit" name="Login" class="btn btn-primary btn-block">Login</button>    -->
         </div>
+
         <br/><br/><br/>
         <a href="#"> Forget Password </a>
 
